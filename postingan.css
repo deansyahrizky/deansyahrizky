@@ -1,0 +1,332 @@
+
+:root {
+  --biru-primer: #3f51b5;
+  --biru-tua: #1a237e;
+  --biru-subheader: #303f9f;
+  --putih: #ffffff;
+  --abu-background: #f4f4f4;
+  --abu-shadow: rgba(0, 0, 0, 0.3);
+  --text-primer: #333;
+  --merah-anggur: #800000;
+  --coklat-kayu: #8b4513;
+  --coklat-gelap: #5d2c00;
+  --transparan-white: rgba(255, 255, 255, 0.05);
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  z-index: 1000;
+  overflow: hidden;
+  background-color: #3f51b5;
+}
+
+.background-header {
+  position: absolute;
+  top: 0; left: 0;
+  width: 80%; height: 100%;
+  background-image: url('background.png'); /* ganti sesuai gambar Anda */
+  background-size: cover;
+  background-position: left;
+  opacity: 1;
+  z-index: 1;
+}
+
+.judul-header {
+  position: relative;
+  z-index: 2;
+  padding: 30px 20px;
+  color: white;
+}
+
+.foto-profil {
+  position: fixed;
+  top: 40px;
+  right: 80px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid white;
+  z-index: 2500;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.foto-profil:hover {
+  transform: scale(1.05);
+}
+
+/* Subheader */
+.subheader {
+  position: fixed;
+  top: 200px;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #303f9f;
+  padding: 12px;
+  text-align: center;
+}
+
+.subheader a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.subheader a:hover {
+  text-decoration: underline;
+}
+
+/* Buat main fleksibel agar mengisi ruang */
+main {
+  flex: 1;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -80%;
+  width: 80%;
+  max-width: 300px;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 2000;
+  transition: right 0.3s ease;
+  overflow-y: auto;
+
+  /* Menyesuaikan dengan posisi foto profil */
+  padding-top: 160px; /* agar isi sidebar tidak tertutup */
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  color: #3f51b5;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.sidebar-menu a {
+  text-decoration: none;
+  color: #3f51b5;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.sidebar-menu a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 2100;
+}
+
+/* Overlay */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 1500;
+}
+.overlay.active {
+  display: block;
+}
+
+/* Optional: Hide subheader on small screens */
+@media (max-width: 768px) {
+  .subheader {
+    display: none;
+  }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  padding-top: 252px; /* header (200px) + subheader (52px) */
+}
+
+/* Kartu Postingan */
+.kartu-postingan {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px 20px;
+}
+
+.card {
+  background-color: white;
+  width: 280px;
+  padding: 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #3f51b5;
+}
+
+.post {
+  padding: 1rem 0;
+  border-bottom: 1px solid #ccc;
+  text-align: justify;
+}
+
+.about, .posts {
+  margin-bottom: 2rem;
+}
+
+article.post {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  text-align: justify;
+}
+
+p {
+  margin-bottom: 1em; /* atau coba 16px atau 20px sesuai selera */
+}
+
+article.puisi {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+article.puisi p {
+  margin-bottom: 1.2em; /* jarak antar bait */
+  text-align: left;     /* bisa diganti center kalau ingin puisi dipusatkan */
+}
+
+article.puisi .judul {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--biru-primer);
+}
+
+article.puisi .penulis {
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+article.puisi {
+  user-select: none;        /* Blokir seleksi teks modern */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.posts {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  background-color: #ffffff;
+}
+
+.post-container {
+  max-width: 750px;
+  padding: 40px 30px;
+  background-color: #fdfdfd;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  line-height: 1.8;
+}
+
+.judul-post {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--biru-primer);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.penulis-post {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+article.post p {
+  font-size: 17px;
+  margin-bottom: 1.5em;
+  text-align: justify;
+}
+
+/* Tambahan: Non-seleksi */
+article.post {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+}
+
+/* Footer */
+footer {
+  background-color: #1a237e;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 50px;
+}

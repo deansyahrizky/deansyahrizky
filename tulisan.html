@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tanya Saya</title>
+  <link rel="stylesheet" href="tulisan.css" />
+</head>
+
+<body>
+  <header>
+  <div class="background-header"></div>
+  </header>
+
+<img src="fotoprofil.jpg" alt="Foto Profil" class="foto-profil" onclick="toggleSidebar()" />
+
+<!-- Sidebar Panel -->
+<div id="sidebar" class="sidebar">
+  <div class="sidebar-content">
+    <nav class="sidebar-menu">
+      <a href="halamanmuka.html">Halaman Muka</a>
+      <a href="beranda.html">Beranda</a>
+      <a href="kontak.html">Kontak</a>
+      <a href="tulisan.html">Karya Tulis</a>
+      <a href="tanyasaya.html">Tanya Saya</a>
+    </nav>
+  </div>
+</div>
+
+<!-- Overlay -->
+<div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
+  <nav class="subheader">
+    <a href="beranda.html">Beranda</a>
+    <a href="kontak.html">Kontak</a>
+    <a href="tulisan.html">Karya Tulis</a>
+    <a href="tanyasaya.html">Tanya Saya</a>
+  </nav>
+
+  <main>
+
+    <section class="about">
+      <h2>Tulisan Saya</h2>
+      <p>Saya menulis pada beberapa bidang: Jurnalisme warga; Karya Tulis Ilmiah; dan Karya Sastra. Tulisan saya menyesuaikan bidang dan hobi saya.</p>
+    </section>
+<!-- Kartu Postingan -->
+    <section class="kartu-postingan">
+      <a href="https://www.kompasiana.com/deansyahrizky" class="card">
+        <h3>Jurnalisme Warga</h3>
+        <p>Ini adalah ringkasan singkat dari postingan pertama.</p>
+      </a>
+      <a href="https://scholar.google.com/citations?hl=id&user=_6bY59IAAAAJ" class="card">
+        <h3>Karya Tulis Ilmiah</h3>
+        <p>Konten menarik tentang topik kedua ada di sini.</p>
+      </a>
+      <a href="sastra.html" class="card">
+        <h3>Karya Sastra</h3>
+        <p>Simak ide-ide unik dan inspiratif di postingan ini.</p>
+      </a>
+    </section>
+
+<script>
+  function bukaSidebar() {
+    document.getElementById('sidebar').classList.add('active');
+    document.getElementById('overlay').style.display = 'block';
+  }
+
+  function tutupSidebar() {
+    document.getElementById('sidebar').classList.remove('active');
+    document.getElementById('overlay').style.display = 'none';
+  }
+</script>
+
+<script>
+  let sidebarAktif = false;
+
+  function toggleSidebar() {
+    sidebarAktif = !sidebarAktif;
+    document.getElementById('sidebar').classList.toggle('active', sidebarAktif);
+    document.getElementById('overlay').classList.toggle('active', sidebarAktif);
+  }
+</script>
+
+</main>
+    <footer>
+      <p>&copy; 2025 Deansyahrizky</p>
+      <p>"ᬇᬤᬲᬂᬳ᭄ᬬᬂᬯᬶᬤᬶᬯᬲᬗᬫᬗ᭄ᬕᬾᬳᬗ᭄ᬢᬸᬃᬗᬫᬾᬃᬢᬦᬶᬦ᭄ᬇᬤᬲᬂᬧ᭄ᬭᬩᬸ᭟"</p>
+    </footer>
+  </div>
+</body>
+</html>

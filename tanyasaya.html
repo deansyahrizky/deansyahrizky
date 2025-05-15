@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tanya Saya</title>
+  <link rel="stylesheet" href="tanyasaya.css" />
+</head>
+<body>
+  <header>
+  <div class="background-header"></div>
+  </header>
+
+<img src="fotoprofil.jpg" alt="Foto Profil" class="foto-profil" onclick="toggleSidebar()" />
+
+<!-- Sidebar Panel -->
+<div id="sidebar" class="sidebar">
+  <div class="sidebar-content">
+    <nav class="sidebar-menu">
+      <a href="halamanmuka.html">Halaman Muka</a>
+      <a href="beranda.html">Beranda</a>
+      <a href="kontak.html">Kontak</a>
+      <a href="tulisan.html">Karya Tulis</a>
+      <a href="tanyasaya.html">Tanya Saya</a>
+    </nav>
+  </div>
+</div>
+
+<!-- Overlay -->
+<div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
+  <nav class="subheader">
+    <a href="beranda.html">Beranda</a>
+    <a href="kontak.html">Kontak</a>
+    <a href="tulisan.html">Karya Tulis</a>
+    <a href="tanyasaya.html">Tanya Saya</a>
+  </nav>
+
+  <main>
+  <form id="contact-form">
+  <input type="text" name="user_name" placeholder="Nama Anda" required>
+  <input type="email" name="user_email" placeholder="Email Anda" required>
+  <textarea name="message" placeholder="Tulis pesan Anda..." required></textarea>
+
+  <!-- Honeypot anti-spam -->
+  <input type="text" name="honeypot" style="display:none">
+
+  <!-- Google reCAPTCHA widget -->
+  <div class="g-recaptcha" data-sitekey="6LffTDYrAAAAAIzzF29ChNEIL11iOw_QCsFoNN9p"></div>
+
+  <button type="submit">Kirim</button>
+</form>
+
+<!-- EmailJS & reCAPTCHA scripts -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<script>
+  (function(){
+    emailjs.init("7o8BeI_KAND4niFy1"); // Ganti dengan Public Key dari EmailJS
+  })();
+
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Honeypot check
+    const honeypot = document.querySelector('input[name="honeypot"]').value;
+    if (honeypot !== '') {
+      alert('Spam terdeteksi.');
+      return;
+    }
+
+    // reCAPTCHA check
+    const recaptchaResponse = grecaptcha.getResponse();
+    if (recaptchaResponse.length === 0) {
+      alert('Harap verifikasi reCAPTCHA terlebih dahulu.');
+      return;
+    }
+
+    // Lanjut kirim dengan EmailJS
+    emailjs.sendForm('service_1q1bdfg', 'service_1q1bdfg', this)
+      .then(() => {
+        alert('Pesan berhasil dikirim!');
+        document.getElementById('contact-form').reset();
+        grecaptcha.reset(); // reset reCAPTCHA setelah submit
+      }, (error) => {
+        alert('Terjadi kesalahan: ' + JSON.stringify(error));
+      });
+  });
+</script>
+
+<!-- Kartu Postingan -->
+    <section class="kartu-postingan">
+      <a href="https://www.kompasiana.com/deansyahrizky/679ae77a34777c0fd70402b2/pesawat-mahdi-visi-perjuangan-rakyat-jambi-pada-1916" class="card">
+        <h3>Pesawat Mahdi, Visi Perjuangan Rakyat Jambi pada 1916</h3>
+        <p>Rakyat Jambi begitu mencintai kemerdekaan sehingga melawan penjajah tidak menakutkan. Apalagi dengan bantuan Mahdi.</p>
+      </a>
+      <a href="togel.html" class="card">
+        <h3>Togel</h3>
+        <p>Seorang pria mengadah kepada peruntungan, kemudian takdir memberikan hasilnya.</p>
+      </a>
+      <a href="https://www.kompasiana.com/deansyahrizky/66856b4eed64155bfa6fbcc2/dapatkah-katak-terbang-seperti-burung" class="card">
+        <h3>Melihat Pendidikan dari Kutipan Ikan</h3>
+        <p>Dapatkah katak terbang seperti burung?</p>
+      </a>
+    </section>
+
+<script>
+  function bukaSidebar() {
+    document.getElementById('sidebar').classList.add('active');
+    document.getElementById('overlay').style.display = 'block';
+  }
+
+  function tutupSidebar() {
+    document.getElementById('sidebar').classList.remove('active');
+    document.getElementById('overlay').style.display = 'none';
+  }
+</script>
+
+<script>
+  let sidebarAktif = false;
+
+  function toggleSidebar() {
+    sidebarAktif = !sidebarAktif;
+    document.getElementById('sidebar').classList.toggle('active', sidebarAktif);
+    document.getElementById('overlay').classList.toggle('active', sidebarAktif);
+  }
+</script>
+
+</main>
+</body>
+<footer>
+    <p>&copy; 2025 Deansyahrizky</p>
+    <p>"ᬇᬤᬲᬂᬳ᭄ᬬᬂᬯᬶᬤᬶᬯᬲᬗᬫᬗ᭄ᬕᬾᬳᬗ᭄ᬢᬸᬃᬗᬫᬾᬃᬢᬦᬶᬦ᭄ᬇᬤᬲᬂᬧ᭄ᬭᬩᬸ᭟"</p>
+</footer>
+</html>
