@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beranda Saya</title>
+  <link rel="stylesheet" href="beranda.css" />
+</head>
+<body>
+  <header>
+  <div class="background-header"></div>
+  </header>
+
+<img src="fotoprofil.jpg" alt="Foto Profil" class="foto-profil" onclick="toggleSidebar()" />
+
+<!-- Sidebar Panel -->
+<div id="sidebar" class="sidebar">
+  <div class="sidebar-content">
+    <nav class="sidebar-menu">
+      <a href="halamanmuka.html">Halaman Muka</a>
+      <a href="beranda.html">Beranda</a>
+      <a href="kontak.html">Kontak</a>
+      <a href="tulisan.html">Karya Tulis</a>
+      <a href="tentangsaya.html">Tentang Saya</a>
+    </nav>
+  </div>
+</div>
+
+<!-- Overlay -->
+<div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
+  <nav class="subheader">
+    <a href="beranda.html">Beranda</a>
+    <a href="kontak.html">Kontak</a>
+    <a href="tulisan.html">Karya Tulis</a>
+    <a href="tentangsaya.html">Tentang Saya</a>
+  </nav>
+  
+  <main>
+    <section class="about">
+      <h2>Tentang Saya</h2>
+      <p> Onder Constructie :(
+      </p>
+    </section>
+
+    <!-- Kartu Postingan -->
+    <section class="kartu-postingan">
+      <a href="https://josths.id/ojs3/index.php/jshs/article/view/457" class="card">
+        <h3>Melihat Konflik Jambi-Johor Dari Sudut Pandang Tungkal</h3>
+        <p>Tungkal  merupakan salah satu pihakn yang terlibat dalam Konflik Jambi-Johor. 
+          Konflik Jambi-Johor merupakan konflik yang berpengaruh besar terhadap kondisi politik dan ekonomi Selat Malaka. 
+          Tulisan ini mengungkapkan sudut pandang Tungkal terhadap Konflik Jambi-Johor yang terindikasi berdampak terhadap ekonomi dan 
+          perdagangan  Tungkal. Melalui metodologi penelitian sejarah yang terdiri dari Heuristik, Verifikasi, Interpretasi, dan Historiografi. 
+          Diketahui selama Konflik Jambi-Johor, Tungkal  mendukung Johor. Pascakonflik tersebut, aktivitas ekonomi dan perdagangan di 
+          Tungkal bertambah sepi. Monopoli VOC atas perdagangan Jambi, ketegangan hubungan Jambi dan Johor, aktivitas perompakan, dan 
+          jatuhnya harga lada merupakan penyebab utama kemunduran tersebut.</p>
+      </a>
+      <a href="https://medium.com/@deansyahrizky/togel-4ebe263306e7" class="card">
+        <h3>Togel</h3>
+        <p>Seorang pria mengadah kepada peruntungan, kemudian takdir memberikan hasilnya.</p>
+      </a>
+      <a href="https://www.kompasiana.com/deansyahrizky/66856b4eed64155bfa6fbcc2/dapatkah-katak-terbang-seperti-burung" class="card">
+        <h3>Melihat Pendidikan dari Kutipan Ikan</h3>
+        <p>Jika pernah, dan anda menganggap bahwa ini adalah kutipan dari jenius terkenal, Albert Einstein, maka selamat, anda SALAH. 
+            Kutipan ini tidak berasal dari Einstein. Sejauh yang diketahui, Einstein tidak pernah mengatakannya.</p>
+      </a>
+    </section>
+
+
+<script>
+  function bukaSidebar() {
+    document.getElementById('sidebar').classList.add('active');
+    document.getElementById('overlay').style.display = 'block';
+  }
+
+  function tutupSidebar() {
+    document.getElementById('sidebar').classList.remove('active');
+    document.getElementById('overlay').style.display = 'none';
+  }
+</script>
+
+<script>
+  let sidebarAktif = false;
+
+  function toggleSidebar() {
+    sidebarAktif = !sidebarAktif;
+    document.getElementById('sidebar').classList.toggle('active', sidebarAktif);
+    document.getElementById('overlay').classList.toggle('active', sidebarAktif);
+  }
+</script>
+
+  </main>
+
+  <footer>
+      <p>&copy; 2025 Deansyahrizky</p>
+      <p>"ᬇᬤᬲᬂᬳ᭄ᬬᬂᬯᬶᬤᬶᬯᬲᬗᬫᬗ᭄ᬕᬾᬳᬗ᭄ᬢᬸᬃᬗᬫᬾᬃᬢᬦᬶᬦ᭄ᬇᬤᬲᬂᬧ᭄ᬭᬩᬸ᭟"</p>
+    </footer>
+
+</body>
+</html>

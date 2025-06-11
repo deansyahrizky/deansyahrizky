@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tanya Saya</title>
+  <link rel="stylesheet" href="kontak.css" />
+</head>
+
+<body>
+  <header>
+  <div class="background-header"></div>
+  </header>
+
+<img src="fotoprofil.jpg" alt="Foto Profil" class="foto-profil" onclick="toggleSidebar()" />
+
+<!-- Sidebar Panel -->
+<div id="sidebar" class="sidebar">
+  <div class="sidebar-content">
+    <nav class="sidebar-menu">
+      <a href="halamanmuka.html">Halaman Muka</a>
+      <a href="beranda.html">Beranda</a>
+      <a href="kontak.html">Kontak</a>
+      <a href="tulisan.html">Karya Tulis</a>
+      <a href="tentangsaya.html">Tentang Saya</a>
+    </nav>
+  </div>
+</div>
+
+<!-- Overlay -->
+<div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
+  <nav class="subheader">
+    <a href="beranda.html">Beranda</a>
+    <a href="kontak.html">Kontak</a>
+    <a href="tulisan.html">Karya Tulis</a>
+    <a href="tentangsaya.html">Tentang Saya</a>
+  </nav>
+
+ <main>
+  <div class="container">
+      <img src="fotoprofil.jpg" alt="Foto Profil" class="profile-img">
+      <h1 class="name">Muhammad Rizky Deansyah</h1>
+      <p class="bio">Digital Creator | Visionary | Retro Soul in a Future World</p>
+
+    <div class="link-buttons">
+      <a href="https://www.instagram.com/deansyahrizky/" class="btn" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/rizky.deansyah.1" class="btn" target="_blank">Facebook</a>
+      <a href="wa.me/6285123240306" class="btn" target="_blank">Whatsapp</a>
+      <a href="https://www.threads.com/@deansyahrizky" class="btn" target="_blank">Threads</a>
+      <a href="https://www.linkedin.com/in/muhammad-rizky-deansyah-746817276/" class="btn" target="_blank">LinkedIn</a>
+      <a href="javascript:void(0);" class="btn" onclick="showPopup()">Email</a>
+    </div>
+  </div>
+</main>
+
+<script>
+  function bukaSidebar() {
+    document.getElementById('sidebar').classList.add('active');
+    document.getElementById('overlay').style.display = 'block';
+  }
+
+  function tutupSidebar() {
+    document.getElementById('sidebar').classList.remove('active');
+    document.getElementById('overlay').style.display = 'none';
+  }
+</script>
+
+<script>
+  let sidebarAktif = false;
+
+  function toggleSidebar() {
+    sidebarAktif = !sidebarAktif;
+    document.getElementById('sidebar').classList.toggle('active', sidebarAktif);
+    document.getElementById('overlay').classList.toggle('active', sidebarAktif);
+  }
+</script>
+
+<script>
+  function showPopup() {
+    document.getElementById("email-popup").classList.remove("hidden");
+  }
+
+  function closePopup() {
+    document.getElementById("email-popup").classList.add("hidden");
+  }
+
+  // Optional: tutup popup saat klik di luar kartu
+  window.addEventListener("click", function (e) {
+    const popup = document.getElementById("email-popup");
+    if (e.target === popup) {
+      closePopup();
+    }
+  });
+</script>
+
+<!-- Popup Email -->
+<div id="email-popup" class="popup hidden">
+  <div class="popup-content">
+    <span class="popup-close" onclick="closePopup()">&times;</span>
+    <p>deansyahrizky@gmail.com</p>
+  </div>
+</div>
+
+<footer>
+      <p>&copy; 2025 Deansyahrizky</p>
+      <p>"ᬇᬤᬲᬂᬳ᭄ᬬᬂᬯᬶᬤᬶᬯᬲᬗᬫᬗ᭄ᬕᬾᬳᬗ᭄ᬢᬸᬃᬗᬫᬾᬃᬢᬦᬶᬦ᭄ᬇᬤᬲᬂᬧ᭄ᬭᬩᬸ᭟"</p>
+</footer>
+</body>
+
+
+</html>

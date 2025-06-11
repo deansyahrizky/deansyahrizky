@@ -1,0 +1,352 @@
+:root {
+  --biru-primer: #3f51b5;
+  --biru-tua: #1a237e;
+  --biru-subheader: #303f9f;
+  --putih: #ffffff;
+  --abu-background: #f4f4f4;
+  --abu-shadow: rgba(0, 0, 0, 0.3);
+  --text-primer: #333;
+  --merah-anggur: #800000;
+  --coklat-kayu: #8b4513;
+  --coklat-gelap: #5d2c00;
+  --transparan-white: rgba(255, 255, 255, 0.05);
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  padding-top: 252px; /* header (200px) + subheader (52px) */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  min-height: calc(100vh - 252px - 110px); /* viewport - header - footer */
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  z-index: 1000;
+  overflow: hidden;
+  background-color: #3f51b5;
+}
+
+.background-header {
+  position: absolute;
+  top: 0; left: 0;
+  width: 80%; height: 100%;
+  background-image: url('background.png'); /* ganti sesuai gambar Anda */
+  background-size: cover;
+  background-position: left;
+  opacity: 1;
+  z-index: 1;
+}
+
+.judul-header {
+  position: relative;
+  z-index: 2;
+  padding: 30px 20px;
+  color: white;
+}
+
+.foto-profil {
+  position: fixed;
+  top: 40px;
+  right: 80px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid white;
+  z-index: 2500;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.foto-profil:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+.foto-profil:active {
+  transform: scale(1.02);
+}
+
+/* Subheader */
+.subheader {
+  position: fixed;
+  top: 200px;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #303f9f;
+  padding: 12px;
+  text-align: center;
+}
+.subheader a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.subheader a:hover {
+  text-decoration: underline;
+}
+
+/* Postingan Bergerak */
+.postingan-bergerak {
+  background: white;
+  margin: 30px auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.postingan-bergerak p {
+  animation: scrollUp 9s linear infinite;
+  font-size: 18px;
+  line-height: 2;
+}
+
+@keyframes scrollUp {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(-300%); }
+}
+
+/* Kartu Postingan */
+.kartu-postingan {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px 20px 60px 20px; /* Tambah padding bottom */
+  min-height: 400px; /* Minimum height untuk tablet */
+}
+
+.card {
+  background-color: white;
+  width: 280px;
+  padding: 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #3f51b5;
+}
+
+/* Footer */
+footer {
+  background-color: #1a237e;
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: auto; /* Pushes footer to bottom */
+  min-height: 110px;
+}
+
+.post {
+  padding: 1rem 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.about, .posts {
+  margin-bottom: 2rem;
+  text-align: justify;
+}
+
+/* Sidebar - PERBAIKAN UTAMA */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%; /* Ubah dari -80% ke -100% untuk menyembunyikan sepenuhnya */
+  width: 80%;
+  max-width: 300px;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 2000;
+  transition: right 0.3s ease;
+  overflow-y: auto;
+  /* Menyesuaikan dengan posisi foto profil */
+  padding-top: 160px; /* agar isi sidebar tidak tertutup */
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  color: #3f51b5;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.sidebar-menu a {
+  text-decoration: none;
+  color: #3f51b5;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.sidebar-menu a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 2100;
+}
+
+/* Overlay */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 1500;
+}
+.overlay.active {
+  display: block;
+}
+
+/* Tablet optimization */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .kartu-postingan {
+    padding: 40px 20px 80px 20px;
+    gap: 30px;
+    min-height: 500px;
+  }
+  
+  .card {
+    width: 300px;
+    padding: 25px;
+  }
+  
+  .about {
+    padding: 20px 40px;
+    margin-bottom: 40px;
+  }
+  
+  main {
+    min-height: calc(100vh - 252px - 110px);
+  }
+}
+
+/* Optional: Hide subheader on small screens */
+@media (max-width: 768px) {
+  .subheader {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding-top: 220px; /* Sedikit kurangi untuk header */
+  }
+
+  /* PERBAIKAN FOTO PROFIL MOBILE */
+  .foto-profil {
+    top: 20px;
+    right: 20px;
+    width: 90px;
+    height: 90px;
+  }
+
+  .foto-profil:hover {
+    transform: scale(1.08);
+  }
+
+  .foto-profil:active {
+    transform: scale(1.02);
+  }
+
+  .judul-header {
+    padding: 20px 10px;
+    font-size: 18px;
+  }
+
+  .postingan-bergerak {
+    height: 120px;
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  .card {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .kartu-postingan {
+    padding: 20px 10px;
+    gap: 15px;
+  }
+
+  /* PERBAIKAN SIDEBAR MOBILE */
+  .sidebar {
+    width: 100%;
+    max-width: none;
+    padding-top: 130px;
+    right: -100%; /* Pastikan tersembunyi sepenuhnya di mobile juga */
+  }
+
+  footer {
+    padding: 20px 10px;
+    font-size: 14px;
+  }
+
+  .about, .posts {
+    padding: 0 15px;
+  }
+
+  .subheader {
+    display: none; /* Sudah ada di CSS kamu */
+  }
+}
